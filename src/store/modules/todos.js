@@ -54,7 +54,22 @@ const actions = {
 
     // Call a mutaion - Pass in id
     commit('deleteTodo', id)
-  }
+  },
+
+  // Filter TODOs, pass in event 
+  async filterTodos({ commit }, e) {
+
+    // Get Selection value from dropdown on FiltersTodos.vue
+    const limit = parseInt(
+      e.target.options[e.target.options.selectedIndex].innerText
+    );
+
+    // Request
+    const response = await axios.get(`https://jsonplaceholder.typicode.com/todos?_limit=${limit}`);
+    
+    // Commit Mutation
+    commit('setTodos', response.data);
+  }  
 };
 
 

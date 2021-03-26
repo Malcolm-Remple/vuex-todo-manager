@@ -1,9 +1,6 @@
 <template>
   <div>
 
-    <!-- Title -->
-    <h3>Todos</h3>
-
     <!-- Todos Wrapper -->
     <div class="todos">
       
@@ -83,12 +80,5 @@ export default {
   bottom: 1rem;
   right: 1rem;
   width: 1.5rem;
-}
-
-h3 {
-  font-family: sans-serif;
-  font-size: 24px;
-  color: #383838;
-  text-align: center;
 }
 </style>

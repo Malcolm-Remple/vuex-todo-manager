@@ -2,7 +2,7 @@
   <div>
 
     <!-- Title -->
-    <h3>Add Todos</h3>
+    <h1>Add Todos</h1>
 
     <div class="add">
       <form
@@ -70,7 +70,7 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-h3 {
+h1 {
   font-family: sans-serif;
   font-size: 24px;
   color: #383838;
