@@ -24,12 +24,16 @@
 </template>
 
 <script>
+
+// Import Getters, and Actions from Vuex
 import { mapGetters, mapActions } from 'vuex';
+
 
 export default { 
   name: "Todos",
 
   methods: {
+    // Using spread operation
     ...mapActions(['fetchTodos'])
   },
 
@@ -45,15 +49,25 @@ export default {
 .todos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1rem;
+  grid-gap: 2rem;
 }
+
 .todo {
-  border: 1px solid #525252;
-  background: #87d9ee;
-  padding: 1rem;
-  border-radius: 5px;
+  background: #17bcea;
+  font-family: sans-serif;
+  font-size: 24px;
+  color: white;
+  padding: 3rem;
+  border-radius: 0.5rem;
   text-align: center;
   position: relative;
   cursor: pointer;
+}
+
+h3 {
+  font-family: sans-serif;
+  font-size: 24px;
+  color: #383838;
+  text-align: center;
 }
 </style>
