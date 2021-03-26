@@ -58,15 +58,15 @@ form {
 input[type="text"] {
   flex: 5;
   padding: 1rem;
-  border: 2px solid #3cd692;
+  border: 2px solid #17bcea;
   outline: 0;
 }
 input[type="submit"] {
   flex: 2;
-  background: #3cd692; 
+  background: #17bcea; 
   color: #fff;
   font-size: 20px;
-  border: 1px #3cd692 solid;
+  border: 1px #17bcea solid;
   cursor: pointer;
 }
 

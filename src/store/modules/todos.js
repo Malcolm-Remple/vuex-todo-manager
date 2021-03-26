@@ -69,7 +69,20 @@ const actions = {
     
     // Commit Mutation
     commit('setTodos', response.data);
-  }  
+  },
+
+  // Update Todo - Pass in updated TODO
+  async updateTodo({ commit }, updatedTodo) {
+
+    // Request
+    const response = await axios.put(
+      `https://jsonplaceholder.typicode.com/todos/${updatedTodo.id}`,
+      updatedTodo
+      );
+    
+    // Commit Mutation
+    commit('updateTodo', response.data);
+  }
 };
 
 
@@ -83,7 +96,21 @@ const mutations = {
   newTodo: (state, todo) =>  state.todos.unshift(todo),
 
   // Delete TODO - .filter to Remove todo from UI
-  deleteTodo: (state, id) => state.todos = state.todos.filter(todo => todo.id !== id),
+  deleteTodo: (state, id) => (state.todos = state.todos.filter(todo => todo.id !== id)),
+
+  // Update TODO
+  updateTodo: (state, updatedTodo) => {
+
+    // Get Index using findIndex - Compare Todo id against updateTodo id
+    const index = state.todos.findIndex(todo => todo.id === updatedTodo.id);
+
+    // Check if Index exisits
+    if(index !== -1) {
+      // Splice out and replace
+      state.todos.splice(index, 1, updatedTodo);
+      // state.todos.splice(index, 1, updTodo);
+    }
+  }
 };
 
 export default {

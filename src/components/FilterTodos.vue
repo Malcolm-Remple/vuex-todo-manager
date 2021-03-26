@@ -7,7 +7,7 @@
     <select
       @change="filterTodos($event)"
       >
-      <option selected="selected">Select Filter Amount</option>
+      <option disabled selected="selected">Select Filter Amount</option>
       <option value="5">5</option>
       <option value="10">10</option>
       <option value="20">20</option>
@@ -15,6 +15,8 @@
       <option value="100">100</option>
       <option value="200">200</option>
     </select>
+
+    <h3>Double Click to Mark as Done!</h3>
 
   </div>
 </template>
@@ -42,7 +44,7 @@ h3 {
 select {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   display: block;
 }
 </style>

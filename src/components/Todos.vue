@@ -6,9 +6,11 @@
       
       <!-- Todo Card -->
       <div
+        class="todo"
+        :class="{'is-complete' : todo.completed}"
         v-for="todo in allTodos"
         :key="todo.id"
-        class="todo"
+        @dblclick="onDoubleClick(todo)"
       >
         {{ todo.title }}
 
@@ -43,8 +45,18 @@ export default {
   name: "Todos",
 
   methods: {
-    // Using spread operation Fetch, Delete TODOS
-    ...mapActions(['fetchTodos', 'deleteTodo'])
+    // Using spread operator - Get Actions - Fetch, Delete, update TODOS
+    ...mapActions(['fetchTodos', 'deleteTodo', 'updateTodo']),
+
+    // Update Todo
+    onDoubleClick(todo) {
+      const updTodo = {
+        id: todo.id,
+        title: todo.title,
+        completed: !todo.completed
+      }
+      this.updateTodo(updTodo);
+    }
   },
 
   computed: mapGetters(['allTodos']),
@@ -63,7 +75,7 @@ export default {
 }
 
 .todo {
-  background: #17bcea;
+  background: #7b60f3;
   font-family: sans-serif;
   font-size: 24px;
   color: white;
@@ -73,6 +85,10 @@ export default {
   position: relative;
   cursor: pointer;
   position: relative;
+}
+
+.is-complete {
+  background: #3cd692;
 }
 
 .delete-todo {
